@@ -1,0 +1,8 @@
+
+.icon-menu:before { content: '\0233'; } /* 'ȳ' */
+.icon-bell:before { content: '\e800'; } /* '' */
+.icon-search:before { content: '\e801'; } /* '' */
+.icon-mic:before { content: '\e802'; } /* '' */
+.icon-keyboard:before { content: '\e803'; } /* '' */
+.icon-videocam:before { content: '\e804'; } /* '' */
+.icon-circle:before { content: '\f111'; } /* '' */
