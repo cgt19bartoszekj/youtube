@@ -5,4 +5,10 @@
 .icon-mic:before { content: '\e802'; } /* '' */
 .icon-keyboard:before { content: '\e803'; } /* '' */
 .icon-videocam:before { content: '\e804'; } /* '' */
+.icon-home:before { content: '\e805'; } /* '' */
+.icon-compass:before { content: '\e806'; } /* '' */
+.icon-video-alt:before { content: '\e807'; } /* '' */
+.icon-video:before { content: '\e808'; } /* '' */
+.icon-video-1:before { content: '\e809'; } /* '' */
 .icon-circle:before { content: '\f111'; } /* '' */
+.icon-history:before { content: '\f1da'; } /* '' */

@@ -47,6 +47,42 @@
       "css": "circle",
       "code": 61713,
       "src": "fontawesome"
+    },
+    {
+      "uid": "829c06a0a3b73b02a6224f4bbb73d99c",
+      "css": "home",
+      "code": 59397,
+      "src": "elusive"
+    },
+    {
+      "uid": "d8579082214a1c550b5d1ab2fee8b02c",
+      "css": "compass",
+      "code": 59398,
+      "src": "elusive"
+    },
+    {
+      "uid": "09b251f36844ae25d58767d85d21bf88",
+      "css": "video-alt",
+      "code": 59399,
+      "src": "elusive"
+    },
+    {
+      "uid": "31accb20e8819b200c297df608e68830",
+      "css": "video",
+      "code": 59400,
+      "src": "elusive"
+    },
+    {
+      "uid": "6341ebcbe1ed1f6777c1b9527ead368e",
+      "css": "video-1",
+      "code": 59401,
+      "src": "entypo"
+    },
+    {
+      "uid": "d4816c0845aa43767213d45574b3b145",
+      "css": "history",
+      "code": 61914,
+      "src": "fontawesome"
     }
   ]
 }

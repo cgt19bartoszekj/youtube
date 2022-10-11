@@ -167,14 +167,15 @@ body, html {
     top: 57px;
     left: 0;
     height: 891px;
-    min-width: 72px;
-    width: 72px;
+    min-width: 240px;
+    width: 240px;
     background-color: #212121;
 }
 .categories{
     display: flex;
     align-items: center;
-    margin-left: 72px;
+    justify-content: center;
+    margin-left: 240px;
     border-bottom:1px solid #373737;
     float: left;
     height: 56px;
@@ -183,7 +184,7 @@ body, html {
 }
 .content{
     color: white;
-    margin-left: 72px;
+    margin-left: 240px;
 }
 
 ::-webkit-scrollbar {
@@ -243,7 +244,7 @@ body, html {
     align-items: center;
 
 }
-cat-button:hover{
+.cat-button:hover{
     background-color: #6a6d6f;
     transition: background-color 0.5s ;
 }
