@@ -126,6 +126,7 @@ body, html {
 .sticky-nav{
     position: sticky;
     top: 0%;
+    opacity: 99%;
 }
 .secondNav{
     display: flex;
