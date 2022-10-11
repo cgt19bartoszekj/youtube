@@ -133,7 +133,7 @@ body, html {
 .leftSideMenu{
     float: left;
     position: fixed;
-    top: 114px;
+    top: 57px;
     left: 0;
     height: 891px;
     min-width: 72px;
@@ -151,4 +151,36 @@ body, html {
 .content{
     color: white;
     margin-left: 72px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aaaaaa;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+.onSmall{
+    display: none;
+    background: none;
+}
+
+@media screen and (max-width: 680px) {
+.searchbar{
+    display: none;
+}
+    .onSmall{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
