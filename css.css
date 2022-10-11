@@ -4,6 +4,7 @@ body, html {
     background-color: #181818;
 }
 .flex-nav{
+    border-bottom:1px solid #373737;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +32,7 @@ body, html {
     display: flex;
     align-items: center;
     height: 56px;
-    width: 150px;
+    width: 168px;
 }
 .mainLogo{
     width: 100px;
@@ -54,15 +55,14 @@ body, html {
     padding-right: 4px;
 }
 .search:focus{
-    outline-style: solid;
-    outline-color: cornflowerblue;
+    outline-style: none
 }
 .search{
+    margin-left: 34px;
     height: 36px;
     max-width: 500px;
     width: 100%;
     min-width: 0px;
-    margin-left: 34px;
     padding-left: 5px;
     font-size: 15px;
     color: white;
@@ -72,6 +72,36 @@ body, html {
     border-left: 1px solid #373737;
     border-right: none;
     border-radius: 0px;
+}
+.search-with-keyboard{
+    max-width: 500px;
+    width: 100%;
+    min-width: 0px;
+    display: flex;
+}
+.search-with-keyboard:focus-within{
+    border: 1px solid cornflowerblue;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.search-with-keyboard:focus-within .search{
+    border-left: none;
+    margin-left: 0;
+}
+.search-with-keyboard:focus-within .icon-search-on-focus{
+    display: flex;
+}
+.icon-search-on-focus{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    border-top: 1px solid #373737;
+    border-left: 1px solid #373737;
+    border-bottom: 1px solid #373737;
+    width: 34px;
+    color: #747474;
 }
 .keyboard-search-icon{
     padding-right: 10px;
@@ -142,8 +172,10 @@ body, html {
     background-color: #212121;
 }
 .categories{
+    display: flex;
+    align-items: center;
+    margin-left: 72px;
     border-bottom:1px solid #373737;
-    border-top:1px solid #373737;
     float: left;
     height: 56px;
     width: 100%;
@@ -155,8 +187,8 @@ body, html {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -184,4 +216,34 @@ body, html {
         justify-content: center;
         align-items: center;
     }
+}
+.cat-buttons{
+    list-style: none;
+    display: flex;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.cat-button{
+    background-color: #373737;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    min-width: 12px;
+    height: 32px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+}
+cat-button:hover{
+    background-color: #6a6d6f;
+    transition: background-color 0.5s ;
 }

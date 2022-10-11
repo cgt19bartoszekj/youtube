@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="css/fontello.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -20,9 +21,12 @@
             </div>
             <div class="nav-middle">
                 <div class="searchbar">
+                    <div class="search-with-keyboard">
+                        <div class="icon-search-on-focus"><i class="icon-search"></i></div>
                     <input type="search" class="search" placeholder="Szukaj">
                     <div class="keyboard-search-icon">
                         <i class="icon-keyboard"></i>
+                    </div>
                     </div>
                     <button class="icon-search-button">
                         <i class="icon-search">
@@ -44,6 +48,21 @@
             <div class="leftSideMenu">
             </div>
             <div class="categories">
+                <ul class="cat-buttons">
+                    <li> <input type="button" class="cat-button" value="Wszystko"> </li>
+                    <li> <input type="button" class="cat-button" value="Nowe rekomendacje"> </li>
+                    <li> <input type="button" class="cat-button" value="Gry"> </li>
+                    <li> <input type="button" class="cat-button" value="Playlisty"> </li>
+                    <li> <input type="button" class="cat-button" value="Muzyka"> </li>
+                    <li> <input type="button" class="cat-button" value="Sport"> </li>
+                    <li> <input type="button" class="cat-button" value="Na żywo"> </li>
+                    <li> <input type="button" class="cat-button" value="Nowe rekomendacje"> </li>
+                    <li> <input type="button" class="cat-button" value="Gry"> </li>
+                    <li> <input type="button" class="cat-button" value="Playlisty"> </li>
+                    <li> <input type="button" class="cat-button" value="Muzyka"> </li>
+                    <li> <input type="button" class="cat-button" value="Sport"> </li>
+                    <li> <input type="button" class="cat-button" value="Na żywo"> </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -201,5 +220,7 @@
         Privacy Policy
     </div>
 </div>
+<script>
+</script>
 </body>
 </html>
