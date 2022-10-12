@@ -80,35 +80,51 @@
                         <i class="icon-history left-menu-icons"></i> <a> Historia </a>
                     </div>
                     <div class="mainbuttons">
-                        <i class="icon-history left-menu-icons"></i> <a> Twoje Filmy </a>
+                        <i class="icon-videocam left-menu-icons"></i> <a> Twoje Filmy </a>
                     </div>
                     <div class="mainbuttons">
-                        <i class="icon-history left-menu-icons"></i> <a> Do obejrzenia </a>
+                        <i class="icon-clock left-menu-icons"></i> <a> Do obejrzenia </a>
                     </div>
                     <div class="mainbuttons">
-                        <i class="icon-history left-menu-icons"></i> <a> Polubione filmy </a>
+                        <i class="icon-thumbs-up left-menu-icons"></i> <a> Polubione filmy </a>
                     </div>
-                    <div class="mainbuttons" id="btn">
+                    <div class="showed-more" id="showed-more">
+                        <div class="mainbuttons">
+                            <i class="icon-list-add left-menu-icons"></i> <a> playlista czivasxd </a>
+                        </div>
+                        <div class="mainbuttons">
+                            <i class="icon-list-add left-menu-icons"></i> <a> nightcore </a>
+                        </div>
+                        <div class="mainbuttons">
+                            <i class="icon-list-add left-menu-icons"></i> <a> Polski Rap! </a>
+                        </div>
+                    </div>
+                    <div class="mainbuttons" onclick="showMore()">
                         <i class="icon-history left-menu-icons"></i> <a> Pokaż więcej</a>
                     </div>
                 </div>
             </div>
-            <div class="categories" id="categories">
-                <ul class="cat-buttons">
-                    <li><input type="button" class="cat-button" value="Wszystko"></li>
-                    <li><input type="button" class="cat-button" value="Nowe rekomendacje"></li>
-                    <li><input type="button" class="cat-button" value="Gry"></li>
-                    <li><input type="button" class="cat-button" value="Playlisty"></li>
-                    <li><input type="button" class="cat-button" value="Muzyka"></li>
-                    <li><input type="button" class="cat-button" value="Sport"></li>
-                    <li><input type="button" class="cat-button" value="Na żywo"></li>
-                    <li><input type="button" class="cat-button" value="Nowe rekomendacje"></li>
-                    <li><input type="button" class="cat-button" value="Gry"></li>
-                    <li><input type="button" class="cat-button" value="Playlisty"></li>
-                    <li><input type="button" class="cat-button" value="Muzyka"></li>
-                    <li><input type="button" class="cat-button" value="Sport"></li>
-                    <li><input type="button" class="cat-button" value="Na żywo"></li>
-                </ul>
+            <div class="categories-div">
+                    <div class="categories-filler" id="categories-filler"></div>
+                <div class="categories" id="categories">
+                    <ul class="cat-buttons">
+                        <li><input type="button" class="cat-button" value="Wszystko"></li>
+                        <li><input type="button" class="cat-button" value="Na żywo"></li>
+                        <li><input type="button" class="cat-button" value="Gry"></li>
+                        <li><input type="button" class="cat-button" value="Muzyka"></li>
+                        <li><input type="button" class="cat-button" value="Playlisty YouTube Mix"></li>
+                        <li><input type="button" class="cat-button" value="Programy kulinarne"></li>
+                        <li><input type="button" class="cat-button" value="Rapowanie"></li>
+                        <li><input type="button" class="cat-button" value="Gotowanie"></li>
+                        <li><input type="button" class="cat-button" value="Przygodowe gry akcji"></li>
+                        <li><input type="button" class="cat-button" value="Kreskówki"></li>
+                        <li><input type="button" class="cat-button" value="Sportowe gry wideo"></li>
+                        <li><input type="button" class="cat-button" value="Zwierzęta domowe"></li>
+                        <li><input type="button" class="cat-button" value="Ostatnio Przesłane"></li>
+                        <li><input type="button" class="cat-button" value="Nowe rekomendacje"></li>
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -480,18 +496,19 @@
 <script>
     function myFunction() {
         let x = document.getElementById("leftSideMenu");
-        let y = document.getElementById("categories");
+        let y = document.getElementById("categories-filler");
         let z = document.getElementById("content-wrapper")
         let a = document.getElementById("leftSideMenuSmall");
+        let b = document.getElementById("categories");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
         }
-        if (y.style.marginLeft === "72px") {
-            y.style.marginLeft = "240px";
+        if (y.style.minWidth === "72px") {
+            y.style.minWidth = "240px";
         } else {
-            y.style.marginLeft = "72px";
+            y.style.minWidth = "72px";
         }
         if (z.style.marginLeft === "72px") {
             z.style.marginLeft = "240px";
@@ -502,6 +519,15 @@
             a.style.display = "none";
         } else {
             a.style.display = "block";
+        }
+    }
+
+    function showMore() {
+        let showMoreButton = document.getElementById("showed-more")
+        if (showMoreButton.style.display === "none") {
+            showMoreButton.style.display = "block";
+        } else {
+            showMoreButton.style.display = "none";
         }
     }
 </script>
