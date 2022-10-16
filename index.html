@@ -15,7 +15,7 @@
     <div class="mainNav">
         <div class="leftNav">
             <div class="menuIcon flexCenter">
-                <i class="icon-menu" onclick="showHideMenu()"></i>
+                <i class="icon-menu" onclick="toggleMenu()"></i>
             </div>
             <div class="logo">
                 <a href="index.html">
@@ -50,6 +50,7 @@
             </div>
         </div>
     </div>
+    <div class="leftSideMenus">
     <div class="leftSideMenu" id="leftSideMenu">
         <div class="leftSideMenuButtons" id="leftSideMenuButtons">
             <div class="leftSideButton">
@@ -104,6 +105,39 @@
             </div>
         </div>
     </div>
+    <div class="leftSideMenuSmall" id="left SideMenuSmall">
+        <div class="leftSideMenuSmallButton">
+            <div class="smallMenuIcon">
+                <i class="icon-home"></i>
+            </div>
+            <span>Główna</span>
+        </div>
+        <div class="leftSideMenuSmallButton">
+            <div class="smallMenuIcon">
+                <i class="icon-compass"></i>
+            </div>
+            <span>Odkrywaj</span>
+        </div>
+        <div class="leftSideMenuSmallButton">
+            <div class="smallMenuIcon">
+                <i class="icon-video-alt"></i>
+            </div>
+            <span>Shorts</span>
+        </div>
+        <div class="leftSideMenuSmallButton">
+            <div class="smallMenuIcon">
+                <i class="icon-video"></i>
+            </div>
+            <span>Subskrypcje</span>
+        </div>
+        <div class="leftSideMenuSmallButton">
+            <div class="smallMenuIcon">
+                <i class="icon-video-1"></i>
+            </div>
+            <span>Biblioteka</span>
+        </div>
+    </div>
+    </div>
     <div class="categories-div" id="categories-div">
         <div class="categories" id="categories">
             <ul class="cat-buttons">
@@ -119,25 +153,26 @@
                 <li><input type="button" class="cat-button" value="Zwierzęta domowe"></li>
                 <li><input type="button" class="cat-button" value="Ostatnio Przesłane"></li>
                 <li><input type="button" class="cat-button" value="Nowe rekomendacje"></li>
-
+                <li><input type="button" class="cat-button" value="Piłka nożna"></li>
+                <li><input type="button" class="cat-button" value="Programy kulinarne"></li>
             </ul>
         </div>
     </div>
 </div>
 <div class="content">tu bedo filmy xD</div>
 <script>
-    function showHideMenu() {
-        let leftSideMenu = document.getElementById("leftSideMenu");
-        let leftSideMenuButtons = document.getElementById("leftSideMenuButtons")
-        if (leftSideMenu.style.minWidth === "72px") {
-            leftSideMenu.style.minWidth = "240px";
+    function toggleMenu() {
+        let menuSmall = document.getElementById("left SideMenuSmall");
+        let menu = document.getElementById("leftSideMenu");
+        if (menu.style.display === 'none') {
+            menu.style.display = 'flex';
         } else {
-            leftSideMenu.style.minWidth = "72px";
+            menu.style.display = 'none';
         }
-        if (leftSideMenuButtons.style.display === "none") {
-            leftSideMenuButtons.style.display = "block";
+        if (menuSmall.style.display === 'block') {
+            menuSmall.style.display = 'none';
         } else {
-            leftSideMenuButtons.style.display = "none";
+            menuSmall.style.display = 'block';
         }
     }
 

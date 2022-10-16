@@ -234,7 +234,6 @@ hr {
 }
 
 .categories {
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,10 +254,10 @@ hr {
 .cat-button {
     background-color: #373737;
     color: white;
-    border: none;
+    border: 1px solid #494949;
     border-radius: 16px;
     min-width: 12px;
-    height: 32px;
+    height: 34px;
     padding-left: 12px;
     padding-right: 12px;
     margin-left: 5px;
@@ -325,7 +324,31 @@ hr {
 #showLess {
     display: none;
 }
-
+.leftSideMenuSmall {
+    font-size: 14px;
+    background-color: #202020;
+    min-width: 72px;
+    height: 940px;
+    float: left;
+    display: none;
+    justify-content: center;
+}
+.leftSideMenuSmallButton{
+    height: 44px;
+    width: 72px;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 14px;
+    font-size: 10px;
+}
+.leftSideMenuSmallButton:hover{
+    background-color: #383838;
+    cursor: pointer;
+}
+.smallMenuIcon{
+    font-size: 19px;
+    padding-bottom: 5px;
+}
 @media screen and (max-width: 700px) {
     .searchbar {
         display: none;
@@ -342,5 +365,16 @@ hr {
     .rightNavIcons {
         padding-left: 0;
     }
+    .leftSideMenus{
+        display: none !important;
+    }
 }
+@media screen and (max-width: 1200px){
+    .leftSideMenu{
+        display: none !important;
+    }
+    .leftSideMenuSmall{
+        display: block !important;
+    }
 
+}
