@@ -11,11 +11,13 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
+
 <div class="stickyNav">
-    <div class="mainNav">
+    <div class="slideMenu" id="slideMenu">
         <div class="leftNav">
             <div class="menuIcon flexCenter">
-                <i class="icon-menu" onclick="toggleMenu()"></i>
+                <i class="icon-menu menuButton" onclick="toggleMenu()"></i>
+                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide()"></i>
             </div>
             <div class="logo">
                 <a href="index.html">
@@ -23,35 +25,6 @@
                 </a>
             </div>
         </div>
-        <div class="middleNav">
-            <div class="searchbar">
-                <div class="search-with-keyboard">
-                    <div class="icon-search-on-focus"><i class="icon-search"></i></div>
-                    <input type="search" class="search" placeholder="Szukaj">
-                    <div class="keyboard-search-icon">
-                        <i class="icon-keyboard"></i>
-                    </div>
-                </div>
-                <button class="icon-search-button">
-                    <i class="icon-search">
-                    </i>
-                </button>
-                <i class="icon-mic mainMicIcon">
-                </i>
-            </div>
-        </div>
-        <div class="rightNav">
-            <div class="rightNavIcons">
-                <i class="icon-search rightNavButton onSmall"></i>
-                <i class="icon-mic rightNavButton onSmall"></i>
-                <i class="icon-videocam rightNavButton flexCenter"></i>
-                <i class="icon-bell rightNavButton flexCenter"></i>
-                <i class="icon-circle rightNavButton flexCenter"></i>
-            </div>
-        </div>
-    </div>
-    <div class="leftSideMenus">
-    <div class="leftSideMenu" id="leftSideMenu">
         <div class="leftSideMenuButtons" id="leftSideMenuButtons">
             <div class="leftSideButton">
                 <i class="icon-home leftSideIcon"></i>Główna
@@ -105,38 +78,134 @@
             </div>
         </div>
     </div>
-    <div class="leftSideMenuSmall" id="left SideMenuSmall">
-        <div class="leftSideMenuSmallButton">
-            <div class="smallMenuIcon">
-                <i class="icon-home"></i>
+    <div class="slideMenuShadow" id="slideMenuShadow" onclick="toggleMenuSlide()">
+    </div>
+    <div class="mainNav">
+        <div class="leftNav">
+            <div class="menuIcon flexCenter">
+                <i class="icon-menu menuButton" onclick="toggleMenu()"></i>
+                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide()"></i>
             </div>
-            <span>Główna</span>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" class="logoImage">
+                </a>
+            </div>
         </div>
-        <div class="leftSideMenuSmallButton">
-            <div class="smallMenuIcon">
-                <i class="icon-compass"></i>
+        <div class="middleNav">
+            <div class="searchbar">
+                <div class="search-with-keyboard">
+                    <div class="icon-search-on-focus"><i class="icon-search"></i></div>
+                    <input type="search" class="search" placeholder="Szukaj">
+                    <div class="keyboard-search-icon">
+                        <i class="icon-keyboard"></i>
+                    </div>
+                </div>
+                <button class="icon-search-button">
+                    <i class="icon-search">
+                    </i>
+                </button>
+                <i class="icon-mic mainMicIcon">
+                </i>
             </div>
-            <span>Odkrywaj</span>
         </div>
-        <div class="leftSideMenuSmallButton">
-            <div class="smallMenuIcon">
-                <i class="icon-video-alt"></i>
+        <div class="rightNav">
+            <div class="rightNavIcons">
+                <i class="icon-search rightNavButton onSmall"></i>
+                <i class="icon-mic rightNavButton onSmall"></i>
+                <i class="icon-videocam rightNavButton flexCenter"></i>
+                <i class="icon-bell rightNavButton flexCenter"></i>
+                <i class="icon-circle rightNavButton flexCenter"></i>
             </div>
-            <span>Shorts</span>
-        </div>
-        <div class="leftSideMenuSmallButton">
-            <div class="smallMenuIcon">
-                <i class="icon-video"></i>
-            </div>
-            <span>Subskrypcje</span>
-        </div>
-        <div class="leftSideMenuSmallButton">
-            <div class="smallMenuIcon">
-                <i class="icon-video-1"></i>
-            </div>
-            <span>Biblioteka</span>
         </div>
     </div>
+    <div class="leftSideMenus">
+        <div class="leftSideMenu" id="leftSideMenu">
+            <div class="leftSideMenuButtons" id="leftSideMenuButtons">
+                <div class="leftSideButton">
+                    <i class="icon-home leftSideIcon"></i>Główna
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-compass leftSideIcon"></i>Odkrywaj
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-video-alt leftSideIcon"></i>Shorts
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-video leftSideIcon"></i>Subskrypcje
+                </div>
+                <hr>
+                <div class="leftSideButton">
+                    <i class="icon-video-1 leftSideIcon"></i>Biblioteka
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-history leftSideIcon"></i>Historia
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-videocam leftSideIcon"></i>Twoje filmy
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-clock leftSideIcon"></i>Do obejrzenia
+                </div>
+                <div class="leftSideButton">
+                    <i class="icon-thumbs-up leftSideIcon"></i>Polubione filmy
+                </div>
+                <div class="playlists" id="playlists">
+                    <div class="leftSideButton">
+                        <i class="icon-list-add leftSideIcon"></i>czivas
+                    </div>
+                    <div class="leftSideButton">
+                        <i class="icon-list-add leftSideIcon"></i>nightcore
+                    </div>
+                    <div class="leftSideButton">
+                        <i class="icon-list-add leftSideIcon"></i>polskihiphop xD
+                    </div>
+                </div>
+                <div class="leftSideButton" onclick="showMoreLess()" id="showMore" class="showMore">
+                    <i class="icon-angle-down leftSideIcon"></i>Pokaż więcej
+                </div>
+
+                <div class="leftSideButton" onclick="showMoreLess()" id="showLess" class="showLess">
+                    <i class="icon-angle-up leftSideIcon"></i>Pokaż mniej
+                </div>
+                <hr>
+                <div class="leftSideHeader">
+                    SUBSKRYPCJE
+                </div>
+            </div>
+        </div>
+        <div class="leftSideMenuSmall" id="left SideMenuSmall">
+            <div class="leftSideMenuSmallButton">
+                <div class="smallMenuIcon">
+                    <i class="icon-home"></i>
+                </div>
+                <span>Główna</span>
+            </div>
+            <div class="leftSideMenuSmallButton">
+                <div class="smallMenuIcon">
+                    <i class="icon-compass"></i>
+                </div>
+                <span>Odkrywaj</span>
+            </div>
+            <div class="leftSideMenuSmallButton">
+                <div class="smallMenuIcon">
+                    <i class="icon-video-alt"></i>
+                </div>
+                <span>Shorts</span>
+            </div>
+            <div class="leftSideMenuSmallButton">
+                <div class="smallMenuIcon">
+                    <i class="icon-video"></i>
+                </div>
+                <span>Subskrypcje</span>
+            </div>
+            <div class="leftSideMenuSmallButton">
+                <div class="smallMenuIcon">
+                    <i class="icon-video-1"></i>
+                </div>
+                <span>Biblioteka</span>
+            </div>
+        </div>
     </div>
     <div class="categories-div" id="categories-div">
         <div class="categories" id="categories">
@@ -161,6 +230,23 @@
 </div>
 <div class="content">tu bedo filmy xD</div>
 <script>
+    window.onload = toggleMenuSlide;
+
+    function toggleMenuSlide() {
+        let slideMenu = document.getElementById("slideMenu");
+        let shadow = document.getElementById("slideMenuShadow");
+        if (slideMenu.style.left === '-240px') {
+            slideMenu.style.left = '0';
+        } else {
+            slideMenu.style.left = '-240px';
+        }
+        if (shadow.style.display === 'none') {
+            shadow.style.display = 'flex';
+        } else {
+            shadow.style.display = 'none';
+        }
+    }
+
     function toggleMenu() {
         let menuSmall = document.getElementById("left SideMenuSmall");
         let menu = document.getElementById("leftSideMenu");

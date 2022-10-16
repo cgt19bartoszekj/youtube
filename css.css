@@ -328,7 +328,7 @@ hr {
     font-size: 14px;
     background-color: #202020;
     min-width: 72px;
-    height: 940px;
+    height: 10000px;
     float: left;
     display: none;
     justify-content: center;
@@ -349,6 +349,30 @@ hr {
     font-size: 19px;
     padding-bottom: 5px;
 }
+.menuSlideButton{
+    display: none;
+}
+.slideMenu {
+    opacity: 100%;
+    left: -240px;
+    position: fixed;
+    background-color: #1f1f1f;
+    width: 240px;
+    height: 10000px;
+    transition: left 0.5s;
+    z-index: 1001;
+}
+.slideMenuShadow{
+    opacity: 50%;
+    display: none;
+    position: fixed;
+    background-color: black;
+    height: 1000px;
+    width: 100%;
+    z-index: 1000;
+    transition: opacity 1s;
+}
+
 @media screen and (max-width: 700px) {
     .searchbar {
         display: none;
@@ -376,5 +400,10 @@ hr {
     .leftSideMenuSmall{
         display: block !important;
     }
-
+    .menuSlideButton{
+        display: flex;
+    }
+    .menuButton{
+        display: none;
+    }
 }
