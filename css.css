@@ -352,8 +352,8 @@ hr {
 .menuSlideButton{
     display: none;
 }
-.slideMenu {
-    opacity: 100%;
+.slideMenu{
+    display: none;
     left: -240px;
     position: fixed;
     background-color: #1f1f1f;
@@ -363,16 +363,23 @@ hr {
     z-index: 1001;
 }
 .slideMenuShadow{
-    opacity: 50%;
     display: none;
+    opacity: 50%;
     position: fixed;
     background-color: black;
     height: 1000px;
     width: 100%;
     z-index: 1000;
-    transition: opacity 1s;
 }
-
+.playlists{
+    display: none;
+}
+.showMore{
+    display: flex;
+}
+.showLess{
+    display: none;
+}
 @media screen and (max-width: 700px) {
     .searchbar {
         display: none;
@@ -399,6 +406,9 @@ hr {
     }
     .leftSideMenuSmall{
         display: block !important;
+    }
+    .slideMenu{
+        display: block;
     }
     .menuSlideButton{
         display: flex;

@@ -16,8 +16,8 @@
     <div class="slideMenu" id="slideMenu">
         <div class="leftNav">
             <div class="menuIcon flexCenter">
-                <i class="icon-menu menuButton" onclick="toggleMenu()"></i>
-                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide()"></i>
+                <i class="icon-menu menuButton" onclick="toggleMenu(), toggleShadow()"></i>
+                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide(), toggleShadow()"></i>
             </div>
             <div class="logo">
                 <a href="index.html">
@@ -54,7 +54,7 @@
             <div class="leftSideButton">
                 <i class="icon-thumbs-up leftSideIcon"></i>Polubione filmy
             </div>
-            <div class="playlists" id="playlists">
+            <div class="playlists">
                 <div class="leftSideButton">
                     <i class="icon-list-add leftSideIcon"></i>czivas
                 </div>
@@ -65,12 +65,11 @@
                     <i class="icon-list-add leftSideIcon"></i>polskihiphop xD
                 </div>
             </div>
-            <div class="leftSideButton" onclick="showMoreLess()" id="showMore" class="showMore">
+            <div class="leftSideButton showMore" onclick="showMoreLess()">
                 <i class="icon-angle-down leftSideIcon"></i>Pokaż więcej
             </div>
-
-            <div class="leftSideButton" onclick="showMoreLess()" id="showLess" class="showLess">
-                <i class="icon-angle-up leftSideIcon"></i>Pokaż mniej
+            <div class="leftSideButton showLess" onclick="showMoreLess()">
+                <i class="icon-angle-up leftSideIcon"></i>Pokaż Mniej
             </div>
             <hr>
             <div class="leftSideHeader">
@@ -78,13 +77,13 @@
             </div>
         </div>
     </div>
-    <div class="slideMenuShadow" id="slideMenuShadow" onclick="toggleMenuSlide()">
+    <div class="slideMenuShadow" onclick="toggleMenuSlide(), toggleShadow()">
     </div>
     <div class="mainNav">
         <div class="leftNav">
             <div class="menuIcon flexCenter">
                 <i class="icon-menu menuButton" onclick="toggleMenu()"></i>
-                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide()"></i>
+                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide(), toggleShadow()"></i>
             </div>
             <div class="logo">
                 <a href="index.html">
@@ -120,8 +119,8 @@
         </div>
     </div>
     <div class="leftSideMenus">
-        <div class="leftSideMenu" id="leftSideMenu">
-            <div class="leftSideMenuButtons" id="leftSideMenuButtons">
+        <div class="leftSideMenu">
+            <div class="leftSideMenuButtons">
                 <div class="leftSideButton">
                     <i class="icon-home leftSideIcon"></i>Główna
                 </div>
@@ -150,7 +149,7 @@
                 <div class="leftSideButton">
                     <i class="icon-thumbs-up leftSideIcon"></i>Polubione filmy
                 </div>
-                <div class="playlists" id="playlists">
+                <div class="playlists">
                     <div class="leftSideButton">
                         <i class="icon-list-add leftSideIcon"></i>czivas
                     </div>
@@ -161,12 +160,8 @@
                         <i class="icon-list-add leftSideIcon"></i>polskihiphop xD
                     </div>
                 </div>
-                <div class="leftSideButton" onclick="showMoreLess()" id="showMore" class="showMore">
+                <div class="leftSideButton" onclick="showMoreLess()" class="showMore">
                     <i class="icon-angle-down leftSideIcon"></i>Pokaż więcej
-                </div>
-
-                <div class="leftSideButton" onclick="showMoreLess()" id="showLess" class="showLess">
-                    <i class="icon-angle-up leftSideIcon"></i>Pokaż mniej
                 </div>
                 <hr>
                 <div class="leftSideHeader">
@@ -174,7 +169,7 @@
                 </div>
             </div>
         </div>
-        <div class="leftSideMenuSmall" id="left SideMenuSmall">
+        <div class="leftSideMenuSmall">
             <div class="leftSideMenuSmallButton">
                 <div class="smallMenuIcon">
                     <i class="icon-home"></i>
@@ -207,8 +202,8 @@
             </div>
         </div>
     </div>
-    <div class="categories-div" id="categories-div">
-        <div class="categories" id="categories">
+    <div class="categories-div">
+        <div class="categories">
             <ul class="cat-buttons">
                 <li><input type="button" class="cat-button" value="Wszystko"></li>
                 <li><input type="button" class="cat-button" value="Na żywo"></li>
@@ -233,54 +228,46 @@
     window.onload = toggleMenuSlide;
 
     function toggleMenuSlide() {
-        let slideMenu = document.getElementById("slideMenu");
-        let shadow = document.getElementById("slideMenuShadow");
-        if (slideMenu.style.left === '-240px') {
+        let slideMenu = document.querySelector(".slideMenu");
+        if (slideMenu.style.left === '-240px')
             slideMenu.style.left = '0';
-        } else {
+        else
             slideMenu.style.left = '-240px';
-        }
-        if (shadow.style.display === 'none') {
-            shadow.style.display = 'flex';
-        } else {
-            shadow.style.display = 'none';
-        }
+    }
+
+    function toggleShadow() {
+        $(".slideMenuShadow").fadeToggle();
     }
 
     function toggleMenu() {
-        let menuSmall = document.getElementById("left SideMenuSmall");
-        let menu = document.getElementById("leftSideMenu");
-        if (menu.style.display === 'none') {
+        let menuSmall = document.querySelector(".leftSideMenuSmall");
+        let menu = document.querySelector(".leftSideMenu");
+        if (menu.style.display === 'none')
             menu.style.display = 'flex';
-        } else {
+        else
             menu.style.display = 'none';
-        }
-        if (menuSmall.style.display === 'block') {
+        if (menuSmall.style.display === 'block')
             menuSmall.style.display = 'none';
-        } else {
+        else
             menuSmall.style.display = 'block';
-        }
     }
 
     function showMoreLess() {
-        let playlists = document.getElementById("playlists");
-        let showMore = document.getElementById("showMore");
-        let showLess = document.getElementById("showLess");
-        if (playlists.style.display === "block") {
-            playlists.style.display = "none";
-        } else {
+        let playlists = document.querySelector(".playlists");
+        let showMore = document.querySelector(".showMore");
+        let showLess = document.querySelector(".showLess");
+        if (playlists.style.display === "block")
+            playlists.style.display = "none"
+        else
             playlists.style.display = "block";
-        }
-        if (showMore.style.display === "none") {
-            showMore.style.display = "flex";
-        } else {
+        if (showMore.style.display === "none")
+            showMore.style.display = "flex"
+        else
             showMore.style.display = "none";
-        }
-        if (showLess.style.display === "flex") {
-            showLess.style.display = "none";
-        } else {
+        if (showLess.style.display === "flex")
+            showLess.style.display = "none"
+        else
             showLess.style.display = "flex";
-        }
     }
 </script>
 </body>
