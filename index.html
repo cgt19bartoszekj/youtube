@@ -11,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-
 <div class="stickyNav">
     <div class="slideMenu" id="slideMenu">
         <div class="leftNav">
@@ -25,7 +24,7 @@
                 </a>
             </div>
         </div>
-        <div class="leftSideMenuButtons" id="leftSideMenuButtons">
+        <div class="leftSideMenuButtons">
             <div class="leftSideButton">
                 <i class="icon-home leftSideIcon"></i>Główna
             </div>
@@ -149,7 +148,7 @@
                 <div class="leftSideButton">
                     <i class="icon-thumbs-up leftSideIcon"></i>Polubione filmy
                 </div>
-                <div class="playlists">
+                <div id="playlists">
                     <div class="leftSideButton">
                         <i class="icon-list-add leftSideIcon"></i>czivas
                     </div>
@@ -160,8 +159,11 @@
                         <i class="icon-list-add leftSideIcon"></i>polskihiphop xD
                     </div>
                 </div>
-                <div class="leftSideButton" onclick="showMoreLess()" class="showMore">
+                <div class="leftSideButton" id="showMore" onclick="showMoreLess2()">
                     <i class="icon-angle-down leftSideIcon"></i>Pokaż więcej
+                </div>
+                <div class="leftSideButton" id="showLess" onclick="showMoreLess2()">
+                    <i class="icon-angle-up leftSideIcon"></i>Pokaż Mniej
                 </div>
                 <hr>
                 <div class="leftSideHeader">
@@ -256,6 +258,23 @@
         let playlists = document.querySelector(".playlists");
         let showMore = document.querySelector(".showMore");
         let showLess = document.querySelector(".showLess");
+        if (playlists.style.display === "block")
+            playlists.style.display = "none"
+        else
+            playlists.style.display = "block";
+        if (showMore.style.display === "none")
+            showMore.style.display = "flex"
+        else
+            showMore.style.display = "none";
+        if (showLess.style.display === "flex")
+            showLess.style.display = "none"
+        else
+            showLess.style.display = "flex";
+    }
+    function showMoreLess2() {
+        let playlists = document.getElementById("playlists");
+        let showMore = document.getElementById("showMore");
+        let showLess = document.getElementById("showLess");
         if (playlists.style.display === "block")
             playlists.style.display = "none"
         else
