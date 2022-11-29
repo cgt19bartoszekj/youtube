@@ -15,7 +15,7 @@ hr {
 
 
 ::-webkit-scrollbar {
-    width: 9px;
+    width: 16px;
     height: 5px;
 }
 
@@ -25,7 +25,9 @@ hr {
 
 ::-webkit-scrollbar-thumb {
     background: #aaaaaa;
-    border-radius: 50px;
+    border: 4px solid transparent;
+    border-radius: 9px;
+    background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -60,12 +62,6 @@ hr {
     height: 56px;
 }
 
-.content {
-    padding: 20px;
-    display: flex;
-
-    height: 1000px;
-}
 
 .leftNav, .middleNav, .rightNav {
 }
@@ -99,6 +95,7 @@ hr {
 }
 
 .searchbar {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,10 +103,75 @@ hr {
     width: 100%;
     padding-left: 4px;
     padding-right: 4px;
+    -webkit-appearance: none;
+}
+
+.search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
 }
 
 .search:focus {
     outline-style: none
+}
+
+.searches {
+    padding-top: 16px;
+    padding-bottom: 8px;
+    font-family: Arial, sans-serif;
+    display: none;
+    color: #121212;
+    background-color: white;
+    width: 100%;
+    top: 35px;
+    position: absolute;
+    text-align: left;
+}
+
+.proposition > .icon-search {
+    margin-right: 10px;
+}
+
+.proposition {
+    height: 32px;
+    padding-left: 10px;
+    padding-right: 24px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.proposition:hover {
+    background-color: #eeeeee;
+}
+
+.proposition > a:visited, a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.report {
+    margin-top: 5px;
+    padding-right: 10px;
+    color: #777777;
+    font-size: 12px;
+    list-style: none;
+    text-align: right;
+}
+
+.report:hover {
+    color: #333333;
+}
+
+.search:placeholder-shown + .cancel-button {
+    display: none;
+}
+
+.searchbar-included {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    min-width: 0;
+
 }
 
 .search {
@@ -129,7 +191,21 @@ hr {
     border-radius: 0px;
 }
 
+.cancel-button {
+    background-color: #131313;
+    display: flex;
+    font-size: 15px;
+    width: 15px;
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #373737;
+    border-left: none;
+    border-right: none;
+    color: #9d9d9d;
+    cursor: pointer;
+}
+
 .search-with-keyboard {
+    position: relative;
     max-width: 500px;
     width: 100%;
     min-width: 0px;
@@ -149,6 +225,10 @@ hr {
     display: flex;
 }
 
+.search-with-keyboard:focus-within .searches {
+    display: block;
+}
+
 .icon-search-on-focus {
     display: none;
     justify-content: center;
@@ -162,6 +242,9 @@ hr {
 }
 
 .keyboard-search-icon {
+    margin-left: auto;
+    margin-right: 0;
+    float: right;
     padding-right: 10px;
     padding-left: 10px;
     display: flex;
@@ -313,17 +396,6 @@ hr {
     padding: 8px 24px;
 }
 
-#playlists {
-    display: none;
-}
-
-#showMore {
-    display: flex;
-}
-
-#showLess {
-    display: none;
-}
 .leftSideMenuSmall {
     font-size: 14px;
     background-color: #202020;
@@ -333,7 +405,8 @@ hr {
     display: none;
     justify-content: center;
 }
-.leftSideMenuSmallButton{
+
+.leftSideMenuSmallButton {
     height: 44px;
     width: 72px;
     text-align: center;
@@ -341,20 +414,23 @@ hr {
     padding-bottom: 14px;
     font-size: 10px;
 }
-.leftSideMenuSmallButton:hover{
+
+.leftSideMenuSmallButton:hover {
     background-color: #383838;
     cursor: pointer;
 }
-.smallMenuIcon{
+
+.smallMenuIcon {
     font-size: 19px;
     padding-bottom: 5px;
 }
-.menuSlideButton{
+
+.menuSlideButton {
     display: none;
 }
-.slideMenu{
+
+.slideMenu {
     display: none;
-    left: -240px;
     position: fixed;
     background-color: #1f1f1f;
     width: 240px;
@@ -362,7 +438,8 @@ hr {
     transition: left 0.5s;
     z-index: 1001;
 }
-.slideMenuShadow{
+
+.slideMenuShadow {
     display: none;
     opacity: 50%;
     position: fixed;
@@ -371,14 +448,51 @@ hr {
     width: 100%;
     z-index: 1000;
 }
-.playlists{
-    display: none;
+
+.content {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    row-gap: 50px;
+    text-align: center;
+    overflow: hidden;
 }
-.showMore{
-    display: flex;
+
+.video {
+    width: 100%;
+    height: max-content;
 }
-.showLess{
-    display: none;
+
+.autor-profile {
+    float: left;
+    width: 15%;
+}
+
+.autor-avatar {
+    width: 70%;
+}
+
+.video-data {
+    text-align: left;
+    float: left;
+    width: 85%;
+
+}
+
+.thumbnail {
+    border-radius: 3%;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-weight: bolder;
+}
+.views-posted>.icon-circle{
+    font-size: 5px;
+    horiz-align: center;
 }
 @media screen and (max-width: 700px) {
     .searchbar {
@@ -396,29 +510,55 @@ hr {
     .rightNavIcons {
         padding-left: 0;
     }
-    .leftSideMenus{
+
+    .leftSideMenus {
         display: none !important;
     }
 }
-@media screen and (max-width: 1200px){
-    .leftSideMenu{
+
+@media screen and (max-width: 1500px) {
+    .content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .leftSideMenu {
         display: none !important;
     }
-    .leftSideMenuSmall{
+
+    .leftSideMenuSmall {
         display: block !important;
     }
-    .slideMenu{
+
+    .slideMenu {
         display: block;
     }
-    .menuSlideButton{
+
+    .menuSlideButton {
         display: flex;
     }
-    .menuButton{
+
+    .menuButton {
         display: none;
     }
+
 }
-@media screen and (min-width: 1200px){
-    .slideMenuShadow{
+
+@media screen and (min-width: 1200px) {
+    .slideMenuShadow {
         display: none !important;
     }
 

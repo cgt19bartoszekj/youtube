@@ -15,8 +15,8 @@
     <div class="slideMenu" id="slideMenu">
         <div class="leftNav">
             <div class="menuIcon flexCenter">
-                <i class="icon-menu menuButton" onclick="toggleMenu(), toggleShadow()"></i>
-                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide(), toggleShadow()"></i>
+                <i class="icon-menu menuButton"></i>
+                <i class="icon-menu menuSlideButton"></i>
             </div>
             <div class="logo">
                 <a href="index.html">
@@ -53,7 +53,7 @@
             <div class="leftSideButton">
                 <i class="icon-thumbs-up leftSideIcon"></i>Polubione filmy
             </div>
-            <div class="playlists">
+            <div class="playlists-slide">
                 <div class="leftSideButton">
                     <i class="icon-list-add leftSideIcon"></i>czivas
                 </div>
@@ -64,11 +64,11 @@
                     <i class="icon-list-add leftSideIcon"></i>polskihiphop xD
                 </div>
             </div>
-            <div class="leftSideButton showMore" onclick="showMoreLess()">
+            <div class="leftSideButton show-more-slide playlist-button-slide">
                 <i class="icon-angle-down leftSideIcon"></i>Pokaż więcej
             </div>
-            <div class="leftSideButton showLess" onclick="showMoreLess()">
-                <i class="icon-angle-up leftSideIcon"></i>Pokaż Mniej
+            <div class="leftSideButton show-less-slide playlist-button-slide">
+                <i class="icon-angle-up leftSideIcon"></i>Pokaż mniej
             </div>
             <hr>
             <div class="leftSideHeader">
@@ -76,13 +76,13 @@
             </div>
         </div>
     </div>
-    <div class="slideMenuShadow" onclick="toggleMenuSlide(), toggleShadow()">
+    <div class="slideMenuShadow">
     </div>
     <div class="mainNav">
         <div class="leftNav">
             <div class="menuIcon flexCenter">
-                <i class="icon-menu menuButton" onclick="toggleMenu()"></i>
-                <i class="icon-menu menuSlideButton" onclick="toggleMenuSlide(), toggleShadow()"></i>
+                <i class="icon-menu menuButton"></i>
+                <i class="icon-menu menuSlideButton"></i>
             </div>
             <div class="logo">
                 <a href="index.html">
@@ -94,17 +94,25 @@
             <div class="searchbar">
                 <div class="search-with-keyboard">
                     <div class="icon-search-on-focus"><i class="icon-search"></i></div>
-                    <input type="search" class="search" placeholder="Szukaj">
+                    <input id="search" type="search" class="search" placeholder="Szukaj">
+                    <button class="cancel-button flexCenter" onclick="clearSearch()"><i class="icon-cancel"></i>
+                    </button>
                     <div class="keyboard-search-icon">
                         <i class="icon-keyboard"></i>
+                    </div>
+                    <div class="searches">
+                        <li class="proposition"><i class="icon-search"></i><a href="index.html" target="_blank">muza do
+                            seata</a></li>
+                        <li class="proposition"><i class="icon-search"></i>fagata wykorzystala stuu</li>
+                        <li class="proposition"><i class="icon-search"></i>co to jd</li>
+                        <li class="report"><i>Zgłoś podpowiedzi wyszukiwania</i></li>
                     </div>
                 </div>
                 <button class="icon-search-button">
                     <i class="icon-search">
                     </i>
                 </button>
-                <i class="icon-mic mainMicIcon">
-                </i>
+                <i class="icon-mic mainMicIcon"></i>
             </div>
         </div>
         <div class="rightNav">
@@ -148,7 +156,7 @@
                 <div class="leftSideButton">
                     <i class="icon-thumbs-up leftSideIcon"></i>Polubione filmy
                 </div>
-                <div id="playlists">
+                <div class="playlists">
                     <div class="leftSideButton">
                         <i class="icon-list-add leftSideIcon"></i>czivas
                     </div>
@@ -159,11 +167,11 @@
                         <i class="icon-list-add leftSideIcon"></i>polskihiphop xD
                     </div>
                 </div>
-                <div class="leftSideButton" id="showMore" onclick="showMoreLess2()">
+                <div class="leftSideButton show-more playlist-button">
                     <i class="icon-angle-down leftSideIcon"></i>Pokaż więcej
                 </div>
-                <div class="leftSideButton" id="showLess" onclick="showMoreLess2()">
-                    <i class="icon-angle-up leftSideIcon"></i>Pokaż Mniej
+                <div class="leftSideButton show-less playlist-button">
+                    <i class="icon-angle-up leftSideIcon"></i>Pokaż mniej
                 </div>
                 <hr>
                 <div class="leftSideHeader">
@@ -225,69 +233,98 @@
         </div>
     </div>
 </div>
-<div class="content">tu bedo filmy xD</div>
+<div class="content">
+</div>
 <script>
-    window.onload = toggleMenuSlide;
 
-    function toggleMenuSlide() {
-        let slideMenu = document.querySelector(".slideMenu");
-        if (slideMenu.style.left === '-240px')
-            slideMenu.style.left = '0';
-        else
-            slideMenu.style.left = '-240px';
+    let playList = document.querySelector(".playlists");
+    let showMore = document.querySelector(".show-more");
+    let showLess = document.querySelector(".show-less");
+    let playListSlide = document.querySelector(".playlists-slide");
+    let showMoreSlide = document.querySelector(".show-more-slide");
+    let showLessSlide = document.querySelector(".show-less-slide");
+    let slideMenu = document.querySelector(".slideMenu");
+    let menuButtonDefault = document.querySelectorAll(".menuButton");
+    let menuButtonSlide = document.querySelectorAll(".menuSlideButton");
+    let contentContainer = document.querySelector(".content");
+    let menu = document.querySelector(".leftSideMenu");
+    let smallMenu = document.querySelector(".leftSideMenuSmall");
+    let thumbnailsAndAutors = ['Xayoo', 'Gimper', 'Mateusz Kaniewski', 'PR08L3M','Takefun','Kostka']
+    let titles = ["TOP 10 WYPADKÓW PEUGEOT 206!", "Wskoczyłem do kulek z twoją starą", "99% graczy o tym nie wiedziało", "Muma na wolności", "Piotr Pomarański oskarżony o pedofilię", "Bongo się rozjebało", "daj kamienia"]
+
+    playList.style.display = "none";
+    showMore.style.display = "flex";
+    showLess.style.display = "none";
+    slideMenu.style.left = '-240px';
+    playListSlide.style.display = "none";
+    showMoreSlide.style.display = "flex";
+    showLessSlide.style.display = "none";
+
+    window.onload = displayVideos;
+
+    function displayVideos(){
+
+        for(i=0; i<24; i++){
+            let x = Math.floor(Math.random()*6)
+            contentContainer.innerHTML = contentContainer.innerHTML +
+                "<div class='video'><img src='images/miniaturki/"+thumbnailsAndAutors[x]+".png' class='thumbnail'><div class='autor-profile'><img class='autor-avatar' src='images/avatar.png'></div><div class='video-data'><div class='title'>"+titles[x]+"</div><div class='autor-name'>"+thumbnailsAndAutors[x]+"</div><div class='views-posted'>5,4tys. wyświetleń <i class='icon-circle'></i> 2 godziny temu</div></div></div>"
+        }
+        alert(x);
     }
 
-    function toggleShadow() {
-        $(".slideMenuShadow").fadeToggle();
+    function clearSearch() {
+        document.getElementById("search").value = "";
     }
 
     function toggleMenu() {
-        let menuSmall = document.querySelector(".leftSideMenuSmall");
-        let menu = document.querySelector(".leftSideMenu");
-        if (menu.style.display === 'none')
+        if (menu.style.display === 'none') {
             menu.style.display = 'flex';
-        else
+            smallMenu.style.display = 'none';
+        } else {
             menu.style.display = 'none';
-        if (menuSmall.style.display === 'block')
-            menuSmall.style.display = 'none';
-        else
-            menuSmall.style.display = 'block';
+            smallMenu.style.display = 'block';
+        }
+    }
+
+    function toggleSlideMenu() {
+        $(".slideMenuShadow").fadeToggle();
+        if (slideMenu.style.left === '-240px') {
+            slideMenu.style.left = '0';
+        } else
+            slideMenu.style.left = '-240px';
     }
 
     function showMoreLess() {
-        let playlists = document.querySelector(".playlists");
-        let showMore = document.querySelector(".showMore");
-        let showLess = document.querySelector(".showLess");
-        if (playlists.style.display === "block")
-            playlists.style.display = "none"
-        else
-            playlists.style.display = "block";
-        if (showMore.style.display === "none")
+
+        if (playList.style.display === "none") {
+            playList.style.display = "block"
+            showMore.style.display = "none"
+            showLess.style.display = "flex"
+        } else {
+            playList.style.display = "none"
             showMore.style.display = "flex"
-        else
-            showMore.style.display = "none";
-        if (showLess.style.display === "flex")
             showLess.style.display = "none"
-        else
-            showLess.style.display = "flex";
+        }
     }
-    function showMoreLess2() {
-        let playlists = document.getElementById("playlists");
-        let showMore = document.getElementById("showMore");
-        let showLess = document.getElementById("showLess");
-        if (playlists.style.display === "block")
-            playlists.style.display = "none"
-        else
-            playlists.style.display = "block";
-        if (showMore.style.display === "none")
-            showMore.style.display = "flex"
-        else
-            showMore.style.display = "none";
-        if (showLess.style.display === "flex")
-            showLess.style.display = "none"
-        else
-            showLess.style.display = "flex";
+
+    function showMoreLessSlide() {
+
+        if (playListSlide.style.display === "none") {
+            playListSlide.style.display = "block"
+            showMoreSlide.style.display = "none"
+            showLessSlide.style.display = "flex"
+        } else {
+            playListSlide.style.display = "none"
+            showMoreSlide.style.display = "flex"
+            showLessSlide.style.display = "none"
+        }
     }
+
+    document.querySelectorAll(".playlist-button").forEach(button => button.addEventListener('click', showMoreLess))
+    document.querySelectorAll(".playlist-button-slide").forEach(button => button.addEventListener('click', showMoreLessSlide))
+    menuButtonDefault.forEach(button => button.addEventListener('click', toggleMenu))
+    menuButtonSlide.forEach(button => button.addEventListener('click', toggleSlideMenu))
+    document.querySelectorAll(".slideMenuShadow").forEach(button => button.addEventListener('click', toggleSlideMenu))
 </script>
 </body>
 </html>

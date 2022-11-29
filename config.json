@@ -113,6 +113,12 @@
       "css": "clock",
       "code": 59404,
       "src": "entypo"
+    },
+    {
+      "uid": "06301c50d89b5d3e651bd07ebd6d7de7",
+      "css": "cancel",
+      "code": 59405,
+      "src": "mfglabs"
     }
   ]
 }
